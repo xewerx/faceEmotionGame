@@ -1,0 +1,44 @@
+app-nav {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: green;
+    width: 100%;
+    height: 15vh;
+}
+
+app-progress-barr {
+    position: absolute;
+    left: 5%;
+    top: 20vh;
+    width: 40%;
+    height: 10vh;
+    background-color: red;
+}
+
+app-game-panel {
+    position: absolute;
+    left: 5%;
+    top: 35vh;
+    width: 40%;
+    height: 50vh;
+    background-color: blue;
+}
+
+app-camera {
+    position: absolute;
+    left: 50%;
+    top: 20vh;
+    width: 40%;
+    height: 65vh;
+    background-color: yellow;
+}
+
+app-ranking-table {
+    position: absolute;
+    left: 50%;
+    top: 20vh;
+    width: 40%;
+    height: 65vh;
+    background-color: yellow;
+}
