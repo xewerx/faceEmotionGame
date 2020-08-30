@@ -29,15 +29,17 @@ app-camera {
     position: absolute;
     left: 50%;
     top: 20vh;
-    width: 40%;
+    width: 45%;
     height: 65vh;
-    background-color: yellow;
+    border: 1px solid;
+    text-align: center;
+    overflow: hidden;
 }
 
 app-ranking-table {
     position: absolute;
-    left: 50%;
-    top: 20vh;
+    left: 30%;
+    top: 110vh;
     width: 40%;
     height: 65vh;
     background-color: yellow;
