@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit } from '@angular/core';
+import { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } from 'constants';
+
+
 
 @Component({
   selector: 'app-progress-barr',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProgressBarrComponent implements OnInit {
 
-  constructor() { }
+  value = 1;
+
+  constructor() {}
 
   ngOnInit(): void {
+    setInterval(() => this.value += 0.4, 50);
   }
 
 }

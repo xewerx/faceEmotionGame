@@ -29,14 +29,13 @@ export class CameraComponent implements OnInit {
     this.result = document.querySelector('.js-emotion');
     this.video = document.querySelector('.js-video');
     this.displaySize = { width: '850', height: '550' };
-    console.log(this.video);
 
     // this.startVideo();
 
     Promise.all([
       faceapi.nets.tinyFaceDetector.loadFromUri('assets'),
       faceapi.nets.faceExpressionNet.loadFromUri('assets')
-     ]).then(() => this.startVideo(this.video)).catch(() => console.log('nie dziala'));
+     ]).then(/*() => this.startVideo(this.video)*/).catch(() => console.log('nie dziala'));
 
    }
 
