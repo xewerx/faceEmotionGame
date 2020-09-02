@@ -10,12 +10,21 @@ import { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } from 'constants';
 })
 export class ProgressBarrComponent implements OnInit {
 
-  value = 1;
-
+  value = 0;
+  difference = 0.4;
   constructor() {}
 
   ngOnInit(): void {
-    setInterval(() => this.value += 0.4, 50);
-  }
+
+
+    const loading = setInterval(() => {
+    if (this.value >= 100) {  this.value = 0; console.log(this.value); this.difference *= 2; } else { this.value += this.difference; }
+  }, 50);
+
+
+
+    }
+
+
 
 }
