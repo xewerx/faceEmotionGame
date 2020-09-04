@@ -11,16 +11,24 @@ export class GameService {
   private valueProgressBar = 0;
   private valueProgressBarSum = new Subject<number>();
 
-  loading(difference): void {
+  private isClickedSum = new Subject<boolean>();
+  isClicked = false;
+
+
+
+  loading(difference): Observable<number> {
     const action = setInterval(() => {
-      console.log('DZIALA');
       // tslint:disable-next-line: max-line-length
       if (this.valueProgressBar >= 100) { clearInterval(action); } else { this.valueProgressBarSum.next(this.valueProgressBar += difference); }
     }, 50);
+
+    return this.valueProgressBarSum.asObservable();
   }
 
-  getValue(): Observable<number> {
-    return this.valueProgressBarSum.asObservable();
+  isClickedSend(): Observable<boolean> {
+    this.isClicked = true;
+    this.isClickedSum.next(this.isClicked);
+    return this.isClickedSum.asObservable();
   }
 
 }

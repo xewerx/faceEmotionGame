@@ -22,7 +22,7 @@ app-game-panel {
     top: 35vh;
     width: 40%;
     height: 50vh;
-    background-color: blue;
+    background-color: white;
 }
 
 app-camera {

@@ -1,0 +1,74 @@
+* {
+    text-align: center;
+    height: 15%;
+}
+
+div {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scoreActually {
+    width: 35%;
+    background-color: yellow;
+}
+
+.score {
+    width: 35%;
+    background-color: rgb(87, 87, 6);
+}
+
+.level {
+    width: 30%;
+    background-color: rgb(87, 6, 63);
+}
+
+.emoji {
+    width: 100%;
+    background-color: darkcyan;
+    height: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1300%;
+}
+
+.emojiName {
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: darkolivegreen;
+    text-align: center;
+}
+
+.play,
+.name {
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    background-color: yellow;
+}
+
+.name {
+    top: 20%;
+}
+
+.play:hover {
+    cursor: pointer;
+    border: 1px black solid;
+    background-color: darkorchid;
+}
+
+[hidden] {
+    display: none !important;
+}
