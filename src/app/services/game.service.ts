@@ -14,7 +14,8 @@ export class GameService {
   private isClickedSum = new Subject<boolean>();
   isClicked = false;
 
-
+  currentEmoji;
+  private currentEmojiSum = new Subject<string>();
 
   loading(difference): Observable<number> {
     const action = setInterval(() => {
@@ -22,6 +23,10 @@ export class GameService {
       if (this.valueProgressBar >= 100) { clearInterval(action); } else { this.valueProgressBarSum.next(this.valueProgressBar += difference); }
     }, 50);
 
+    return this.valueProgressBarSum.asObservable();
+  }
+
+  getValueProgressBar(): Observable<number> {
     return this.valueProgressBarSum.asObservable();
   }
 

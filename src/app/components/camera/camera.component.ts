@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import * as faceapi from 'face-api.js';
+import { GameService } from 'src/app/services/game.service';
 
 @Component({
   selector: 'app-camera',
@@ -9,20 +10,20 @@ import * as faceapi from 'face-api.js';
 export class CameraComponent implements OnInit {
 
   emotions = {
-    neutral: 'Neutralny 😐',
-    surprised: 'Zaskoczony 😮',
-    disgusted: 'Zniesmaczony',
-    fearful: 'Wystraszony 😨',
-    sad: 'Smutny 🙁',
-    angry: 'Zły 😠',
-    happy: 'Wesoły 😃',
+    neutral: '😐Neutralny',
+    surprised: '😮Zaskoczony',
+    disgusted: '😕Zniesmaczony',
+    fearful: '😨Wystraszony',
+    sad: '🙁Smutny',
+    angry: '😠Zły',
+    happy: '😃Wesoły',
 };
     video: any;
     canvas: any;
     result: any;
     displaySize: any;
 
-  constructor() {}
+  constructor(private gameService: GameService) {}
 
   ngOnInit(): void {
     this.canvas = document.querySelector('.js-overlay');
@@ -35,7 +36,7 @@ export class CameraComponent implements OnInit {
     Promise.all([
       faceapi.nets.tinyFaceDetector.loadFromUri('assets'),
       faceapi.nets.faceExpressionNet.loadFromUri('assets')
-     ]).then(/*() => this.startVideo(this.video)*/).catch(() => console.log('nie dziala'));
+     ]).then(() => this.startVideo(this.video)).catch(() => console.log('nie dziala'));
 
    }
 
@@ -61,6 +62,7 @@ export class CameraComponent implements OnInit {
       return acc[1] > current[1] ? acc : current;
     }, []);
     this.result.textContent = this.emotions[max[0]];
+    return this.emotions[max[0]];
   }
 
   async detectFace() {
@@ -76,6 +78,7 @@ export class CameraComponent implements OnInit {
 
       if (detections[0]) {
         this.showExpression(detections[0]);
+        this.gameService.currentEmoji = this.showExpression(detections[0]);
       }
     }, 100);
 
