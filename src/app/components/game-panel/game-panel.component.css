@@ -9,18 +9,13 @@ div {
     align-items: center;
 }
 
-.scoreActually {
-    width: 35%;
-    background-color: yellow;
-}
-
 .score {
-    width: 35%;
+    width: 50%;
     background-color: rgb(87, 87, 6);
 }
 
 .level {
-    width: 30%;
+    width: 50%;
     background-color: rgb(87, 6, 63);
 }
 

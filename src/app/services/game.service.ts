@@ -14,10 +14,11 @@ export class GameService {
   private isClickedSum = new Subject<boolean>();
   isClicked = false;
 
-  currentEmoji;
-  private currentEmojiSum = new Subject<string>();
+  currentEmoji: string;
 
-  loading(difference): Observable<number> {
+
+ loading(difference: number): Observable<number> {
+    this.valueProgressBar = 0;
     const action = setInterval(() => {
       // tslint:disable-next-line: max-line-length
       if (this.valueProgressBar >= 100) { clearInterval(action); } else { this.valueProgressBarSum.next(this.valueProgressBar += difference); }

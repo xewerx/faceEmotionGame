@@ -10,13 +10,13 @@ import { GameService } from 'src/app/services/game.service';
 export class CameraComponent implements OnInit {
 
   emotions = {
-    neutral: '😐Neutralny',
-    surprised: '😮Zaskoczony',
-    disgusted: '😕Zniesmaczony',
-    fearful: '😨Wystraszony',
-    sad: '🙁Smutny',
-    angry: '😠Zły',
-    happy: '😃Wesoły',
+    neutral: '😐neutral',
+    surprised: '😮surprised',
+    disgusted: '😕disgusted',
+    fearful: '😨fearful',
+    sad: '🙁sad',
+    angry: '😠angry',
+    happy: '😃happy',
 };
     video: any;
     canvas: any;

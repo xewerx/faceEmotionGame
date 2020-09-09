@@ -20,13 +20,11 @@ export class GamePanelComponent implements OnInit {
 emotionsTab = ['neutral', 'surprised', 'disgusted', 'fearful', 'sad', 'angry', 'happy'];
 
   isVisible = 'true';
-  scoreActually = 0;
   score = 0;
-  level = 1;
-  emoji = 'nic';
-  emojiName = 'nic2';
+  bestScore = 0;
+  emoji = 'error';
+  emojiName = 'error';
 
-  test1 = 'happy';
   loadingValue = 0;
   emojiFromCamera;
 
@@ -43,21 +41,26 @@ emotionsTab = ['neutral', 'surprised', 'disgusted', 'fearful', 'sad', 'angry', '
   }
 
   game() {
-
     this.gameService.getValueProgressBar().subscribe( data =>
       this.loadingValue = data);
 
     let result =  Math.floor(Math.random() * 7);
     this.emoji = this.emotions[this.emotionsTab[result]].slice(0, 2);
-    this.emojiName = this.emotions[this.emotionsTab[result]].slice(2);
-    setInterval( () => {
-      // if (this.loadingValue >= 100) {console.log('KONIEC'); }
-      if (this.test1 === this.emojiName) {
-        console.log('dupa');
+    this.emojiName = this.emotions[this.emotionsTab[result]];
+
+    const process = setInterval( () => {
+      if (this.loadingValue >= 100) {
+        clearInterval(process);
+        this.isVisible = '';
+        if (this.score > this.bestScore) {
+          this.bestScore = this.score;
+        }
+        this.score = 0;
+      }
+      if (this.emojiName === this.gameService.currentEmoji) {
         result =  Math.floor(Math.random() * 7);
         this.emoji = this.emotions[this.emotionsTab[result]].slice(0, 2);
-        this.emojiName = this.emotions[this.emotionsTab[result]].slice(2);
-        this.scoreActually++;
+        this.emojiName = this.emotions[this.emotionsTab[result]];
         this.score++;
       }
 
