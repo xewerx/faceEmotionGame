@@ -18,8 +18,9 @@ export class ProgressBarrComponent implements OnInit {
 
     this.gameService.isClickedSend().subscribe( isClick => {
       if (isClick === true) {
-        this.gameService.loading(2).subscribe( data =>
-          this.value = data);
+        this.gameService.loading(0.5).subscribe( data => {
+          this.value = data; } );
+
       }
     });
 

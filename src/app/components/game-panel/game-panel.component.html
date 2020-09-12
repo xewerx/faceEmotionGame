@@ -3,6 +3,6 @@
 <div class="emoji">{{emoji}}</div>
 <div class="emojiName">{{emojiName}}</div>
 <div class="overlay" [ngStyle]="{display: isVisible}">
-    <div class="name">#NAZWA_GRY</div>
+    <div class="name" *ngIf="score">SCORE: {{score}}</div>
     <div class="play" (click)="hideOverlay()">Play</div>
 </div>

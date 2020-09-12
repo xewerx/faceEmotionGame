@@ -17,12 +17,18 @@ export class GameService {
   currentEmoji: string;
 
 
+
  loading(difference: number): Observable<number> {
-    this.valueProgressBar = 0;
     const action = setInterval(() => {
       // tslint:disable-next-line: max-line-length
-      if (this.valueProgressBar >= 100) { clearInterval(action); } else { this.valueProgressBarSum.next(this.valueProgressBar += difference); }
+      if (this.valueProgressBar >= 103) {
+         this.valueProgressBar = 0;
+         this.valueProgressBarSum.next(this.valueProgressBar);
+         clearInterval(action);
+        } else {
+        this.valueProgressBarSum.next(this.valueProgressBar += difference); }
     }, 50);
+
 
     return this.valueProgressBarSum.asObservable();
   }

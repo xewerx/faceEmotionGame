@@ -41,6 +41,7 @@ emotionsTab = ['neutral', 'surprised', 'disgusted', 'fearful', 'sad', 'angry', '
   }
 
   game() {
+    this.score = 0;
     this.gameService.getValueProgressBar().subscribe( data =>
       this.loadingValue = data);
 
@@ -49,13 +50,12 @@ emotionsTab = ['neutral', 'surprised', 'disgusted', 'fearful', 'sad', 'angry', '
     this.emojiName = this.emotions[this.emotionsTab[result]];
 
     const process = setInterval( () => {
-      if (this.loadingValue >= 100) {
-        clearInterval(process);
+      if (this.loadingValue >= 102) {
         this.isVisible = '';
+        clearInterval(process);
         if (this.score > this.bestScore) {
           this.bestScore = this.score;
         }
-        this.score = 0;
       }
       if (this.emojiName === this.gameService.currentEmoji) {
         result =  Math.floor(Math.random() * 7);
@@ -63,8 +63,6 @@ emotionsTab = ['neutral', 'surprised', 'disgusted', 'fearful', 'sad', 'angry', '
         this.emojiName = this.emotions[this.emotionsTab[result]];
         this.score++;
       }
-
-      console.log(this.gameService.currentEmoji);
 
 
 
