@@ -1,4 +1,4 @@
-In progress...
+Not done project but I will do this in the future :)
 
 Angular + TensorFlow.js project.
 
